@@ -1,0 +1,148 @@
+.detail-hero {
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.detail-hero h1 {
+  margin-inline: auto;
+  max-width: 100%;
+  font-size: clamp(2.3rem, 5.4vw, 4.4rem);
+}
+
+.detail-hero .hero-copy {
+  margin-inline: auto;
+  max-width: 65ch;
+}
+
+.video-section {
+  padding-top: 0.6rem;
+}
+
+.detail-surface {
+  border: 1px solid var(--line);
+  border-radius: 1.15rem;
+  padding: clamp(0.8rem, 2vw, 1.25rem);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.video-shell {
+  max-width: 920px;
+  margin: 0 auto;
+  border-radius: 0.92rem;
+  overflow: hidden;
+  background: #121419;
+}
+
+.video-launch {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: #101318;
+}
+
+.video-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.06)),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.22));
+}
+
+.video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92px;
+  height: 64px;
+  border-radius: 14px;
+  background: rgba(239, 13, 13, 0.96);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.video-play::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-35%, -50%);
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-left: 22px solid #ffffff;
+}
+
+.video-shell iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.video-help {
+  margin: 0.9rem auto 0;
+  max-width: 920px;
+  color: var(--muted);
+  text-align: right;
+}
+
+.video-help a {
+  color: #0f5f88;
+}
+
+.store-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.store-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 0.45rem;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+}
+
+.store-link img {
+  width: min(100%, 360px);
+  height: auto;
+}
+
+.detail-copy h2 {
+  font-family: "Fraunces", Georgia, serif;
+}
+
+.detail-copy p {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.detail-actions {
+  margin-top: 1.35rem;
+}
+
+@media (max-width: 760px) {
+  .video-help {
+    text-align: left;
+  }
+}

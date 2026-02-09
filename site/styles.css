@@ -247,6 +247,17 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+.project-card-clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card-clickable:hover,
+.project-card-clickable:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 45px rgba(20, 30, 24, 0.18);
+}
+
 .project-card::before {
   content: "";
   position: absolute;
@@ -266,6 +277,23 @@ h2 {
 
 .project-square::before {
   background: #147bb4;
+}
+
+.project-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.project-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 19px;
+  object-fit: cover;
+  border: 1px solid rgba(26, 34, 30, 0.15);
+  box-shadow: 0 8px 24px rgba(30, 35, 31, 0.2);
+  background: #ffffff;
 }
 
 .project-year {
@@ -436,7 +464,8 @@ h3 {
 
   .reveal,
   .btn,
-  .project-links a {
+  .project-links a,
+  .project-card-clickable {
     transition: none;
   }
 }

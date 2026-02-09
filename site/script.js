@@ -47,3 +47,30 @@ const highlightActiveLink = () => {
 window.addEventListener("scroll", highlightActiveLink, { passive: true });
 window.addEventListener("resize", highlightActiveLink);
 highlightActiveLink();
+
+const clickableCards = document.querySelectorAll(".project-card-clickable[data-detail-url]");
+const navigateToDetail = (card) => {
+  const url = card.getAttribute("data-detail-url");
+  if (url) {
+    window.location.href = url;
+  }
+};
+
+clickableCards.forEach((card) => {
+  card.addEventListener("click", (event) => {
+    if (event.target.closest("a, button")) {
+      return;
+    }
+    navigateToDetail(card);
+  });
+
+  card.addEventListener("keydown", (event) => {
+    if (event.target !== card) {
+      return;
+    }
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      navigateToDetail(card);
+    }
+  });
+});

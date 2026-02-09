@@ -1,21 +1,14 @@
 .detail-hero {
-  padding-bottom: 1rem;
   text-align: center;
 }
 
 .detail-hero h1 {
   margin-inline: auto;
-  max-width: 100%;
-  font-size: clamp(2.3rem, 5.4vw, 4.4rem);
 }
 
 .detail-hero .hero-copy {
   margin-inline: auto;
-  max-width: 65ch;
-}
-
-.video-section {
-  padding-top: 0.6rem;
+  max-width: 60ch;
 }
 
 .detail-surface {
@@ -126,10 +119,6 @@
 .store-link img {
   width: min(100%, 360px);
   height: auto;
-}
-
-.detail-copy h2 {
-  font-family: "Fraunces", Georgia, serif;
 }
 
 .detail-copy p {

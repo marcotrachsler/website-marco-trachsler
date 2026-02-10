@@ -258,27 +258,6 @@ h2 {
   box-shadow: 0 22px 45px rgba(20, 30, 24, 0.18);
 }
 
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto auto 0;
-  width: 74px;
-  height: 4px;
-  border-top-left-radius: 1.1rem;
-}
-
-.project-lio::before {
-  background: #18a574;
-}
-
-.project-clarity::before {
-  background: #c75b12;
-}
-
-.project-square::before {
-  background: #147bb4;
-}
-
 .project-top {
   display: flex;
   align-items: flex-start;

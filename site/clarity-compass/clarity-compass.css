@@ -1,0 +1,121 @@
+﻿.detail-hero {
+  text-align: center;
+}
+
+.detail-hero h1 {
+  margin-inline: auto;
+}
+
+.detail-hero .hero-copy {
+  margin-inline: auto;
+  max-width: 60ch;
+}
+
+.detail-surface {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.app-visual-shell {
+  max-width: 920px;
+  margin: 0 auto;
+  border-radius: 0.92rem;
+  overflow: hidden;
+  background:
+    radial-gradient(100% 120% at 12% 10%, rgba(255, 255, 255, 0.25), transparent 52%),
+    linear-gradient(150deg, #70a4de, #6399d8);
+  box-shadow: 0 22px 42px rgba(16, 22, 20, 0.22);
+}
+
+.app-visual-frame {
+  min-height: clamp(280px, 45vw, 460px);
+  display: grid;
+  place-items: center;
+  padding: clamp(1.2rem, 4vw, 2.2rem);
+}
+
+.app-visual-frame img {
+  width: min(70%, 360px);
+  height: auto;
+  border-radius: 22%;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 0 22px 40px rgba(29, 48, 86, 0.26);
+  background: #ffffff;
+}
+
+.store-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.store-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0.8rem;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: transform 0.2s ease;
+}
+
+.store-link:hover,
+.store-link:focus-visible {
+  transform: translateY(-2px);
+}
+
+.store-link:focus-visible {
+  outline: 2px solid rgba(15, 118, 110, 0.45);
+  outline-offset: 4px;
+}
+
+.store-link img {
+  display: block;
+  width: min(100%, 360px);
+  height: auto;
+  filter: drop-shadow(0 12px 24px rgba(16, 22, 20, 0.18));
+}
+
+.contact-panel.detail-copy {
+  border: 0;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.66)),
+    radial-gradient(circle at right top, #fef2d8, #effaf4);
+  box-shadow: var(--shadow);
+}
+
+.detail-copy h2 {
+  text-align: center;
+}
+
+.detail-copy p {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.detail-actions {
+  margin-top: 1.35rem;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .detail-hero {
+    text-align: left;
+  }
+
+  .detail-hero h1,
+  .detail-hero .hero-copy {
+    margin-inline: 0;
+  }
+
+  .detail-copy h2 {
+    text-align: left;
+  }
+}

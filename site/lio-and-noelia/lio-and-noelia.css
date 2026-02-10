@@ -12,11 +12,11 @@
 }
 
 .detail-surface {
-  border: 1px solid var(--line);
-  border-radius: 1.15rem;
-  padding: clamp(0.8rem, 2vw, 1.25rem);
-  background: var(--card);
-  box-shadow: var(--shadow);
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .video-shell {
@@ -25,6 +25,7 @@
   border-radius: 0.92rem;
   overflow: hidden;
   background: #121419;
+  box-shadow: 0 22px 42px rgba(16, 22, 20, 0.24);
 }
 
 .video-launch {
@@ -109,16 +110,37 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--line);
-  border-radius: 0.9rem;
-  padding: 0.45rem;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: var(--shadow);
+  border: 0;
+  border-radius: 0.8rem;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: transform 0.2s ease;
+}
+
+.store-link:hover,
+.store-link:focus-visible {
+  transform: translateY(-2px);
+}
+
+.store-link:focus-visible {
+  outline: 2px solid rgba(15, 118, 110, 0.45);
+  outline-offset: 4px;
 }
 
 .store-link img {
+  display: block;
   width: min(100%, 360px);
   height: auto;
+  filter: drop-shadow(0 12px 24px rgba(16, 22, 20, 0.18));
+}
+
+.contact-panel.detail-copy {
+  border: 0;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.66)),
+    radial-gradient(circle at right top, #fef2d8, #effaf4);
+  box-shadow: var(--shadow);
 }
 
 .detail-copy p {

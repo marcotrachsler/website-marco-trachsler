@@ -13,6 +13,32 @@ if (window.location.protocol === "https:" || window.location.protocol === "http:
     const normalizedUrl = `${normalizedPath}${window.location.search}${window.location.hash}`;
     window.history.replaceState(null, "", normalizedUrl);
   }
+
+  if (normalizedPath === "/") {
+    const currentUrl = new URL(window.location.href);
+    const languageParam = (currentUrl.searchParams.get("lang") || "").toLowerCase();
+
+    if (languageParam !== "en") {
+      const browserLanguages = [...(navigator.languages || []), navigator.language || ""]
+        .filter(Boolean)
+        .map((language) => language.toLowerCase());
+
+      const prefersGerman =
+        languageParam === "de" ||
+        browserLanguages.some((language) => language === "de" || language.startsWith("de-"));
+
+      if (prefersGerman) {
+        const germanUrl = new URL("/de/", window.location.origin);
+        currentUrl.searchParams.forEach((value, key) => {
+          if (key.toLowerCase() !== "lang") {
+            germanUrl.searchParams.append(key, value);
+          }
+        });
+        germanUrl.hash = currentUrl.hash;
+        window.location.replace(germanUrl.toString());
+      }
+    }
+  }
 }
 
 const yearNode = document.getElementById("year");

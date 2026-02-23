@@ -1,4 +1,4 @@
-.detail-hero {
+﻿.detail-hero {
   text-align: center;
 }
 
@@ -19,83 +19,31 @@
   box-shadow: none;
 }
 
-.video-shell {
+.app-visual-shell {
   max-width: 920px;
   margin: 0 auto;
   border-radius: 0.92rem;
   overflow: hidden;
-  background: #121419;
-  box-shadow: 0 22px 42px rgba(16, 22, 20, 0.24);
-}
-
-.video-launch {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  background: #101318;
-}
-
-.video-poster {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-overlay {
-  position: absolute;
-  inset: 0;
   background:
-    linear-gradient(to top, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.06)),
-    radial-gradient(circle at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.22));
+    radial-gradient(100% 120% at 12% 10%, rgba(255, 255, 255, 0.25), transparent 52%),
+    linear-gradient(150deg, #70a4de, #6399d8);
+  box-shadow: 0 22px 42px rgba(16, 22, 20, 0.22);
 }
 
-.video-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 92px;
-  height: 64px;
-  border-radius: 14px;
-  background: rgba(239, 13, 13, 0.96);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+.app-visual-frame {
+  min-height: clamp(280px, 45vw, 460px);
+  display: grid;
+  place-items: center;
+  padding: clamp(1.2rem, 4vw, 2.2rem);
 }
 
-.video-play::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-35%, -50%);
-  width: 0;
-  height: 0;
-  border-top: 13px solid transparent;
-  border-bottom: 13px solid transparent;
-  border-left: 22px solid #ffffff;
-}
-
-.video-shell iframe {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-}
-
-.video-help {
-  margin: 0.9rem auto 0;
-  max-width: 920px;
-  color: var(--muted);
-  text-align: right;
-}
-
-.video-help a {
-  color: #0f5f88;
+.app-visual-frame img {
+  width: min(70%, 360px);
+  height: auto;
+  border-radius: 22%;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 0 22px 40px rgba(29, 48, 86, 0.26);
+  background: #ffffff;
 }
 
 .store-section {
@@ -143,6 +91,10 @@
   box-shadow: var(--shadow);
 }
 
+.detail-copy h2 {
+  text-align: left;
+}
+
 .detail-copy p {
   margin-top: 1rem;
   color: var(--muted);
@@ -150,10 +102,17 @@
 
 .detail-actions {
   margin-top: 1.35rem;
+  text-align: center;
 }
 
 @media (max-width: 760px) {
-  .video-help {
+  .detail-hero {
     text-align: left;
   }
+
+  .detail-hero h1,
+  .detail-hero .hero-copy {
+    margin-inline: 0;
+  }
+
 }

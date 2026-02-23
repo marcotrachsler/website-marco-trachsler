@@ -1,0 +1,47 @@
+.policy-hero {
+  text-align: center;
+}
+
+.policy-hero h1 {
+  margin-inline: auto;
+  max-width: 18ch;
+}
+
+.policy-panel {
+  max-width: 920px;
+  margin-inline: auto;
+  border: 0;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.68)),
+    radial-gradient(circle at right top, #fef2d8, #effaf4);
+}
+
+.policy-panel h3 {
+  margin-top: 1.35rem;
+  font-size: 1.13rem;
+  line-height: 1.3;
+}
+
+.policy-panel p {
+  margin-top: 0.75rem;
+  max-width: none;
+}
+
+.policy-panel a {
+  color: #0f5f88;
+}
+
+.effective-date {
+  font-weight: 700;
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .policy-hero {
+    text-align: left;
+  }
+
+  .policy-hero h1 {
+    margin-inline: 0;
+  }
+}

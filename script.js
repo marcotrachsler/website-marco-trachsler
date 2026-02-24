@@ -1,31 +1,25 @@
 if (window.location.protocol === "https:" || window.location.protocol === "http:") {
-  let normalizedPath = window.location.pathname;
+  const currentPath = window.location.pathname;
+  const isRootPath = currentPath === "/" || currentPath === "/index.html";
 
-  if (normalizedPath.endsWith("/index.html")) {
-    normalizedPath = normalizedPath.slice(0, -"/index.html".length) || "/";
-  }
-
-  if (normalizedPath.length > 1 && normalizedPath.endsWith("/")) {
-    normalizedPath = normalizedPath.slice(0, -1);
-  }
-
-  if (normalizedPath !== window.location.pathname) {
-    const normalizedUrl = `${normalizedPath}${window.location.search}${window.location.hash}`;
-    window.history.replaceState(null, "", normalizedUrl);
-  }
-
-  if (normalizedPath === "/") {
+  if (isRootPath) {
     const currentUrl = new URL(window.location.href);
     const languageParam = (currentUrl.searchParams.get("lang") || "").toLowerCase();
 
     if (languageParam !== "en") {
-      const browserLanguages = [...(navigator.languages || []), navigator.language || ""]
-        .filter(Boolean)
-        .map((language) => language.toLowerCase());
+      const browserLanguages = Array.isArray(navigator.languages)
+        ? navigator.languages.slice()
+        : [];
+      if (navigator.language) {
+        browserLanguages.push(navigator.language);
+      }
 
       const prefersGerman =
         languageParam === "de" ||
-        browserLanguages.some((language) => language === "de" || language.startsWith("de-"));
+        browserLanguages.some((language) => {
+          const normalizedLanguage = String(language).toLowerCase();
+          return normalizedLanguage === "de" || normalizedLanguage.startsWith("de-");
+        });
 
       if (prefersGerman) {
         const germanUrl = new URL("/de/", window.location.origin);
@@ -47,18 +41,22 @@ if (yearNode) {
 }
 
 const reveals = document.querySelectorAll(".reveal");
-const revealObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.22 }
-);
-reveals.forEach((node) => revealObserver.observe(node));
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.22 }
+  );
+  reveals.forEach((node) => revealObserver.observe(node));
+} else {
+  reveals.forEach((node) => node.classList.add("is-visible"));
+}
 
 const navToggle = document.querySelector(".menu-toggle");
 const navLinks = document.getElementById("nav-links");
